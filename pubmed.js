@@ -1,5 +1,5 @@
 window.pubmed = (function() { 
-  			
+        			
 		function createList(term) {
 			
 			var max = 10,
@@ -74,7 +74,7 @@ window.pubmed = (function() {
 					  	 	html += '<div class="pubmed_article"><div class="pubmed_title"><a class="pubmed_link" href="http://www.ncbi.nlm.nih.gov/pubmed/'+articles[i].getElementsByTagName("PMID")[0].firstChild.nodeValue + '">'; 
 					     	html += articles[i].getElementsByTagName("ArticleTitle")[0].firstChild.nodeValue + '</a></div>';
 						    if(showDetails) {
-						    	if(collapsibleAbstract)
+						    	if(collapsibleDetails)
 						     		html += '<a class="pubmed_detailsExpander" href="javascript:void(0)">details [+] </a>';
 						     	html += '<div class="pubmed_details">';
 						     	var authors = articles[i].getElementsByTagName("Author");
@@ -90,10 +90,10 @@ window.pubmed = (function() {
 						     		var doi = "doi: " + articles[i].getElementsByTagName("ELocationID")[0].firstChild.nodeValue;
 						     	html += '<div class="pubmed_publicationDetails">' + journalName + ' ' + pubDate + '. ' + doi + '</div>';
 						     	html += '</div>';
-						     	if(collapsibleAbstract)
-						     		html += '<a class="pubmed_abstractExpander" href="javascript:void(0)">abstract [+] </a>';
 						    }
 						    if(showAbstract) {
+						     	if(collapsibleAbstract)
+						     		html += '<a class="pubmed_abstractExpander" href="javascript:void(0)">abstract [+] </a>';
 						    	html += '<div class="pubmed_abstract">';
 						     	if(articles[i].getElementsByTagName("AbstractText")[0])
 						     		var abstract = articles[i].getElementsByTagName("AbstractText")[0].firstChild.nodeValue;
